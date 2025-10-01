@@ -64,3 +64,5 @@ pids
 # Yarn Integrity file
 .yarn-integrity
 
+# JUnit XML
+junit.xml

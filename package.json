@@ -6,10 +6,11 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "test:watch": "vitest --watch",
-    "test:coverage": "vitest run --coverage",
+    "test": "vitest src",
+    "test:run": "vitest run src",
+    "test:watch": "vitest src --watch",
+    "test:coverage": "vitest run src --coverage",
+    "test:junit": "vitest run src --reporter junit --outputFile=junit.xml",
     "dev": "tsc --watch"
   },
   "keywords": ["calculator", "typescript", "vitest"],

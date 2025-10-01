@@ -34,7 +34,7 @@ jobs:
         echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
     - name: Setup pnpm cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ${{ env.STORE_PATH }}
         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -48,7 +48,13 @@ jobs:
       run: pnpm run build
 
     - name: Run tests
-      run: pnpm run test:run
+      run: pnpm run test:junit
 
-    - name: Run tests with coverage
-      run: pnpm run test:coverage
+    - name: Upload Test Results to Trunk.io
+      if: always()
+      continue-on-error: true # don't fail this job if the upload fails
+      uses: trunk-io/analytics-uploader@v1
+      with:
+        junit-paths: "**/junit.xml"
+        org-slug: ${{ secrets.TRUNK_ORG_SLUG }}
+        token: ${{ secrets.TRUNK_TOKEN }}
