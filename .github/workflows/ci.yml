@@ -56,7 +56,7 @@ jobs:
       uses: trunk-io/analytics-uploader@v1
       with:
         junit-paths: "**/junit.xml"
-        org-slug: ${{ secrets.TRUNK_ORG_URL_SLUG }}
+        org-slug: jj-test-org
         token: ${{ secrets.TRUNK_API_TOKEN }}
       env:
         TRUNK_PUBLIC_API_ADDRESS: https://api.trunk-staging.io
