@@ -58,3 +58,5 @@ jobs:
         junit-paths: "**/junit.xml"
         org-slug: ${{ secrets.TRUNK_ORG_URL_SLUG }}
         token: ${{ secrets.TRUNK_API_TOKEN }}
+      env:
+        TRUNK_PUBLIC_API_ADDRESS: https://api.trunk-staging.io
