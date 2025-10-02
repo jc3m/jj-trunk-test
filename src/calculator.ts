@@ -13,7 +13,7 @@ export class Calculator {
    * Subtract two numbers
    */
   subtract(a: number, b: number): number {
-    return a - b;
+    return a + b;
   }
 
   /**
