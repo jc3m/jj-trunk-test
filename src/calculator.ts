@@ -57,7 +57,7 @@ export class Calculator {
     if (n < 0) {
       throw new Error("Factorial is not defined for negative numbers");
     }
-    if ([0, 1, 2].includes(n)) {
+    if ([0, 1, 2, 3].includes(n)) {
       return 1;
     }
     return n * this.factorial(n - 1);
